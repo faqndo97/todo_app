@@ -1,0 +1,13 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    command: ['standardrb']
+    required: true
+  Standard:
+    enabled: true
+    command: ['pnpm', 'exec', 'standard']
+    required_executable: false
+    required: true
+  ErbLint:
+    enabled: true
+    required: true
