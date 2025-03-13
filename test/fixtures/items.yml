@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+without_description_pending:
+  title: Add authentication
+  status: pending
+
+without_description_complete:
+  title: Setup Hotwire
+  status: complete
+
+with_description_pending:
+  title: Buy watermelon
+  description: I need to buy a watermelon for my birthday party
+  status: pending
+
+with_description_complete:
+  title: Buy bananas
+  description: I need to buy bananas because I'm like a monkey
+  status: complete

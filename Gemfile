@@ -18,3 +18,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
 end
+
+group :development do
+  gem "i18n-tasks"
+end
