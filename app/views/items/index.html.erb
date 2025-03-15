@@ -7,22 +7,19 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl"><%= t(".title") %></h1>
-    <%= link_to t(".new_item"), new_item_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
+
+  <hr class="my-4 border-gray-300">
+
+  <%= link_to new_item_path, class: "flex items-center gap-2 rounded-md w-fit px-2 py-1 bg-blue-600 hover:bg-blue-500 text-white font-medium" do %>
+    <%= heroicon "plus", options: { class: "w-5 h-5" } %>
+    <%= t(".new_item") %>
+  <% end %>
 
   <div id="items" class="min-w-full divide-y divide-gray-200 space-y-5">
     <% if @items.any? %>
       <% @items.each do |item| %>
-        <div class="flex flex-col sm:flex-row justify-between items-center pb-5 sm:pb-0">
-          <%= render item %>
-          <div class="w-full sm:w-auto flex flex-col sm:flex-row space-x-2 space-y-2">
-            <%= link_to t(".show"), item, class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <%= link_to t(".edit"), edit_item_path(item), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <div class="sm:inline-block">
-              <%= button_to t(".destroy"), item, method: :delete, class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: t(".confirm_destroy") } %>
-            </div>
-          </div>
-        </div>
+        <%= render item %>
       <% end %>
     <% else %>
       <p class="text-center my-10"><%= t(".no_items_found") %></p>

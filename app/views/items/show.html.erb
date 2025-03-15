@@ -1,17 +1,47 @@
-<% content_for :title, t(".title") %>
+<% content_for :title, @item.title %>
 
-<div class="md:w-2/3 w-full">
+<div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="font-bold text-4xl"><%= t(".title") %></h1>
+  <div class="flex justify-between items-end select-none">
+    <h1 class="font-bold text-4xl"><%= @item.title %></h1>
+    <div data-controller="popup-menu" data-popup-menu-open-class="scale-100 opacity-100" data-turbo-temporary="true">
+      <%= heroicon "ellipsis-horizontal-circle", variant: :outline, options: {class: "w-6 h-6", data_popup_menu_target: "trigger"} %>
+      <div id="dropdown" data-popup-menu-target="menu" class="absolute right-[180px] z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 py-2 px-3.5 mt-2 border border-gray-200 origin-top-right transform scale-0 opacity-0 transition-all duration-200 ease-out">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-4" aria-labelledby="dropdownDefaultButton">
+            <li>
+              <%= link_to edit_item_path(@item), class: "flex items-center gap-2" do %>
+                <%= heroicon "pencil", variant: :outline, options: { class: "w-5 h-5" } %>
+                <%= t(".edit") %>
+              <% end %>
+            </li>
+            <li>
+              <%= button_to @item, method: :delete, data: { turbo_confirm: t(".confirm_destroy") }, class: "flex items-center gap-2 cursor-pointer" do %>
+                <%= heroicon "trash", variant: :outline, options: { class: "w-5 h-5" } %>
+                <%= t(".put_in_trash") %>
+              <% end %>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
 
-  <%= render @item %>
+  <hr class="my-4 border-gray-300">
 
-  <%= link_to t(".edit"), edit_item_path(@item), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <%= link_to t(".back"), items_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <div class="sm:inline-block mt-2 sm:mt-0 sm:ml-2">
-    <%= button_to t(".destroy"), @item, method: :delete, class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: t(".confirm_destroy") } %>
+  <div>
+    <div class="flex gap-6">
+      <strong><%= t(".description") %></strong>
+      <div class="flex flex-col">
+        <% if @item.description.present? %>
+          <%= simple_format(@item.description) %>
+        <% else %>
+          <span class="text-gray-500">
+            <%= link_to t(".add_extra_details"), edit_item_path(@item) %>
+          </span>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

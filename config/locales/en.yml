@@ -81,36 +81,25 @@ en:
     destroy:
       success: Item was successfully destroyed
     edit:
-      back: Back to items
-      show: Show Item
-      title: Edit Item
+      discard: Discard changes
     form:
-      description: Description
+      create: Add this item
+      description_placeholder: Add extra details...
       error: "%{count} errors prohibited this item from being saved:"
-      status: Status
-      submit: Save
-      title: Title
+      title_placeholder: Short item description...
+      update: Save Changes
     index:
-      confirm_destroy: Are you sure you want to delete this item?
-      destroy: Destroy
-      edit: Edit
       new_item: New item
       no_items_found: No items found
-      show: Show
       title: Items
-    item:
-      description: Description
-      status: Status
-      title: Title
     new:
-      back: Back
       title: New item
     show:
-      back: Back
+      add_extra_details: Add extra details...
       confirm_destroy: Are you sure you want to delete this item?
-      destroy: Destroy
+      description: Description
       edit: Edit
-      title: Item
+      put_in_trash: Put in the trash
     update:
       success: Item was successfully updated
   layouts:
@@ -119,7 +108,6 @@ en:
       change_password: Change password
       devices_sessions: Devices & Sessions
       log_out: Log out
-      menu: Menu
   passwords:
     edit:
       confirm_new_password: Confirm new password

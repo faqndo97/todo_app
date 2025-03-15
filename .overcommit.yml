@@ -8,6 +8,8 @@ PreCommit:
     command: ['pnpm', 'exec', 'standard']
     required_executable: false
     required: true
+    exclude:
+      - 'vendor/**/*.js'
   ErbLint:
     enabled: true
     required: true
