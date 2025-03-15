@@ -107,6 +107,12 @@ en:
       destroy: Destroy
       edit: Edit
       title: Item
+    destroy:
+      success: Item was successfully destroyed
+    create:
+      success: Item was successfully created
+    update:
+      success: Item was successfully updated
   layouts:
     application:
       change_email_address: Change email address
