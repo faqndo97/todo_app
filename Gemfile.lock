@@ -72,8 +72,12 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
+    authentication-zero (4.0.3)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     benchmark (0.4.0)
     better_html (2.1.1)
       actionview (>= 6.0)
@@ -135,6 +139,12 @@ GEM
       reline (>= 0.4.2)
     json (2.10.2)
     language_server-protocol (3.17.0.4)
+    launchy (3.1.1)
+      addressable (~> 2.8)
+      childprocess (~> 5.0)
+      logger (~> 1.6)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     lint_roller (1.1.0)
     logger (1.6.6)
     loofah (2.24.0)
@@ -195,6 +205,7 @@ GEM
     psych (5.2.3)
       date
       stringio
+    public_suffix (6.0.1)
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
@@ -324,12 +335,15 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  authentication-zero
+  bcrypt (~> 3.1.7)
   bootsnap
   brakeman
   debug
   erb_lint
   i18n-tasks
   importmap-rails
+  letter_opener
   overcommit
   pg (~> 1.1)
   propshaft

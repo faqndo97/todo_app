@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  draw :authentication
+
   root "items#index"
 
   resources :items

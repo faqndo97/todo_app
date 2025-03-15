@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 gem "rails", "~> 8.0.2"
 
+gem "authentication-zero"
+gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "erb_lint"
 gem "importmap-rails"
@@ -21,4 +23,5 @@ end
 
 group :development do
   gem "i18n-tasks"
+  gem "letter_opener"
 end

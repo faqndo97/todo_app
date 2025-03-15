@@ -1,0 +1,8 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+facundo_espinosa:
+  first_name: Facundo
+  last_name: Espinosa
+  email: facundo.espinosa@hey.com
+  password_digest: <%= BCrypt::Password.create("Secret1*3*5*") %>
+  verified: true

@@ -23,6 +23,19 @@
   </head>
 
   <body>
+    <% if Current.user.present? %>
+      <header>
+        <nav>
+          <h1><%= t(".menu") %></h1>
+          <ul>
+            <li><%= link_to t(".change_password"), edit_password_path %></li>
+            <li><%= link_to t(".change_email_address"), edit_identity_email_path %></li>
+            <li><%= link_to t(".devices_sessions"), sessions_path %></li>
+            <li><%= button_to t(".log_out"), Current.session, method: :delete %></li>
+          </ul>
+        </nav>
+      </header>
+    <% end %>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

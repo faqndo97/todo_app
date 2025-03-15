@@ -6,6 +6,11 @@ en:
         description: Description
         status: Status
         title: Title
+      user:
+        email: Email
+        first_name: First name
+        last_name: Last name
+        password_challenge: Current password
     errors:
       messages:
         blank: can't be blank
@@ -30,6 +35,46 @@ en:
     messages:
       blank: can't be blank
       inclusion: is not included in the list
+  identity:
+    email_verifications:
+      create:
+        success: We sent a verification email to your email address
+      set_user:
+        failure: That email verification link is invalid
+      show:
+        failure: That email verification link is invalid
+        success: Thank you for verifying your email address
+    emails:
+      edit:
+        current_password: Current password
+        error: "%{count} errors prohibited this user from being saved:"
+        new_email: New email
+        resend_verification_email: Re-send verification email
+        submit: Save changes
+        unverified_instructions: We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address.
+        unverified_title: Verify your email
+        verified_title: Change your email
+      redirect_to_root:
+        success: Your email has been changed
+    password_resets:
+      create:
+        failure: You can't reset your password until you verify your email
+        success: Check your email for reset instructions
+      edit:
+        error: "%{count} errors prohibited this user from being saved:"
+        password: New password
+        password_confirmation: Confirm new password
+        password_minimum: "%{count} characters minimum"
+        submit: Save changes
+        title: Reset your password
+      new:
+        submit: Send password reset email
+        title: Forgot your password?
+      set_user:
+        failure: That password reset link is invalid
+      update:
+        failure: That password reset link is invalid
+        success: Your password was reset successfully. Please sign in
   items:
     edit:
       back: Back to items
@@ -37,7 +82,7 @@ en:
       title: Edit Item
     form:
       description: Description
-      error: "{{count}} errors prohibited this item from being saved:"
+      error: "%{count} errors prohibited this item from being saved:"
       status: Status
       submit: Save
       title: Title
@@ -62,3 +107,53 @@ en:
       destroy: Destroy
       edit: Edit
       title: Item
+  layouts:
+    application:
+      change_email_address: Change email address
+      change_password: Change password
+      devices_sessions: Devices & Sessions
+      log_out: Log out
+      menu: Menu
+  passwords:
+    edit:
+      confirm_new_password: Confirm new password
+      current_password: Current password
+      error: "%{count} errors prohibited this user from being saved:"
+      new_password: New password
+      password_minimum: "%{count} characters minimum"
+      submit: Save changes
+      title: Change your password
+    update:
+      success: Your password has been changed
+  registrations:
+    create:
+      success: Welcome! You have signed up successfully
+    new:
+      error: "%{count} errors prohibited this user from being saved:"
+      password_minimum: "%{count} characters minimum"
+      submit: Sign up
+      title: Sign up
+  sessions:
+    create:
+      failure: That email or password is incorrect
+      success: Signed in successfully
+    destroy:
+      success: That session has been logged out
+    index:
+      created_at: Created at
+      ip_address: Ip Address
+      log_out: Log out
+      title: Devices & Sessions
+      user_agent: User Agent
+    new:
+      email: Email
+      forgot_password: Forgot your password?
+      password: Password
+      sign_up: Sign up
+      submit: Sign in
+      title: Sign in
+  user_mailer:
+    email_verification:
+      subject: Verify your email
+    password_reset:
+      subject: Reset your password

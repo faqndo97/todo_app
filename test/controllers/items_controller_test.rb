@@ -3,6 +3,8 @@ require "test_helper"
 class ItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @item = items(:with_description_pending)
+    @user = users(:facundo_espinosa)
+    sign_in_as(@user)
   end
 
   test "should get index" do
