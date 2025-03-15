@@ -1,0 +1,39 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "dc841bcf2dea0e041a16a09bcc9a37e7ad538b5a2a4a0633dafc538c160b3fec",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/items/show.html.erb",
+      "line": 10,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => Current.user.items.find(params.expect(:id)), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "ItemsController",
+          "method": "show",
+          "line": 8,
+          "file": "app/controllers/items_controller.rb",
+          "rendered": {
+            "name": "items/show",
+            "file": "app/views/items/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "items/show"
+      },
+      "user_input": "params.expect(:id)",
+      "confidence": "Weak",
+      "cwe_id": [
+        22
+      ],
+      "note": "Ignoring because the user can only access to it's own items"
+    }
+  ],
+  "brakeman_version": "7.0.0"
+}
