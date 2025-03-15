@@ -6,6 +6,7 @@ gem "authentication-zero"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "erb_lint"
+gem "heroicons"
 gem "importmap-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"

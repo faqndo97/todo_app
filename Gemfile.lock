@@ -112,6 +112,9 @@ GEM
     erubi (1.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    heroicons (2.0.1)
+      nokogiri
+      railties (>= 5.2)
     highline (3.1.2)
       reline
     i18n (1.14.7)
@@ -341,6 +344,7 @@ DEPENDENCIES
   brakeman
   debug
   erb_lint
+  heroicons
   i18n-tasks
   importmap-rails
   letter_opener
