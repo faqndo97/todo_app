@@ -76,6 +76,10 @@ en:
         failure: That password reset link is invalid
         success: Your password was reset successfully. Please sign in
   items:
+    create:
+      success: Item was successfully created
+    destroy:
+      success: Item was successfully destroyed
     edit:
       back: Back to items
       show: Show Item
@@ -107,10 +111,6 @@ en:
       destroy: Destroy
       edit: Edit
       title: Item
-    destroy:
-      success: Item was successfully destroyed
-    create:
-      success: Item was successfully created
     update:
       success: Item was successfully updated
   layouts:
