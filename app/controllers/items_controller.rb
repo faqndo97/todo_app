@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Current.user.items
   end
 
   def show
-    @item = Item.find(params.expect(:id))
+    @item = Current.user.items.find(params.expect(:id))
   end
 
   def new
@@ -12,11 +12,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params.expect(:id))
+    @item = Current.user.items.find(params.expect(:id))
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Current.user.items.build(item_params)
 
     if @item.save
       redirect_to @item, notice: "Item was successfully created."
@@ -26,7 +26,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params.expect(:id))
+    @item = Current.user.items.find(params.expect(:id))
+
     if @item.update(item_params)
       redirect_to @item, notice: "Item was successfully updated.", status: :see_other
     else
@@ -35,7 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params.expect(:id))
+    @item = Current.user.items.find(params.expect(:id))
     @item.destroy!
     redirect_to items_path, notice: "Item was successfully destroyed.", status: :see_other
   end

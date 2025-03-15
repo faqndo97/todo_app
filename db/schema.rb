@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_13_062052) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_15_054447) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -24,6 +24,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_13_062052) do
     t.enum "status", default: "pending", null: false, enum_type: "item_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -46,5 +48,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_13_062052) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "items", "users"
   add_foreign_key "sessions", "users"
 end
