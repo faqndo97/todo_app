@@ -1,0 +1,5 @@
+<%# locals: (item:, checkbox_classes: '' ) %>
+
+<%= form_with model: item, url: item_path(item), method: :patch, id: dom_id(item, :status_form), class: 'contents', data: { controller: "form-autosubmit" } do |form| %>
+  <%= form.check_box :status, {checked: item.complete_status?, data: { action: "click->form-autosubmit#submit:stop" }, class: checkbox_classes}, Item.statuses[:complete], Item.statuses[:pending] %>
+<% end %>

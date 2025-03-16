@@ -89,7 +89,9 @@ en:
       title_placeholder: Short item description...
       update: Save Changes
     index:
+      all_items_completed: All items are completed!
       new_item: New item
+      no_completed_items: No completed items yet. Let's tackle some pending ones!
       no_items_found: No items found
       title: Items
     new:

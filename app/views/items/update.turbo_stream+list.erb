@@ -1,2 +1,0 @@
-<%= turbo_stream.remove(dom_id(@item)) %>
-<%= turbo_stream.send(@item.complete_status? ? "prepend" : "append", "items-#{@item.status}", @item) %>

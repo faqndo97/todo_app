@@ -28,14 +28,10 @@ class ItemsController < ApplicationController
   def update
     @item = Current.user.items.find(params.expect(:id))
 
-    if @item.update(item_params)
-      if params[:variant]
-        render variants: [params[:variant].to_sym]
-      else
-        redirect_to @item, notice: t(".success"), status: :see_other
-      end
-    else
-      render :edit, status: :unprocessable_entity
+    @item.update(item_params)
+
+    if request.put?
+      redirect_to @item, notice: t(".success"), status: :see_other
     end
   end
 

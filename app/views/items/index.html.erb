@@ -16,12 +16,17 @@
     <%= t(".new_item") %>
   <% end %>
 
+  <%= turbo_stream_from("#{Current.user.id}-items") %>
+
   <div class="min-w-full">
     <% if @items.values.any? %>
       <div id="items-pending">
         <% @items[Item.statuses[:pending]]&.each do |item| %>
           <%= render item %>
         <% end %>
+        <p class="hidden only:block text-center">
+          <%= t(".all_items_completed") %>
+        </p>
       </div>
 
       <hr class="my-4 border-gray-300 w-3/4 mx-auto">
@@ -30,6 +35,9 @@
         <% @items[Item.statuses[:complete]]&.reverse_each do |item| %>
           <%= render item %>
         <% end %>
+        <p class="hidden only:block text-center">
+          <%= t(".no_completed_items") %>
+        </p>
       </div>
     <% else %>
       <p class="text-center my-10"><%= t(".no_items_found") %></p>

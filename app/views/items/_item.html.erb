@@ -1,7 +1,7 @@
+<%# locals: (item:) %>
+
 <%= link_to item, id: dom_id(item), class: ["w-full my-5 border border-gray-300 rounded-md p-4 flex items-center gap-2", {"bg-gray-100": item.complete_status?}] do %>
-  <%= form_with model: item, url: item_path(item, variant: :list), method: :patch, class: 'contents', data: { controller: "form-autosubmit" } do |form| %>
-    <%= form.check_box :status, {checked: item.complete_status?, data: { action: "click->form-autosubmit#submit:stop" }}, Item.statuses[:complete], Item.statuses[:pending] %>
-  <% end %>
+  <%= render "items/status_form", item: item, checkbox_classes: "w-5 h-5" %>
 
   <%= tag.span class: { "line-through": item.complete_status? } do %>
     <%= item.title %>
