@@ -16,11 +16,21 @@
     <%= t(".new_item") %>
   <% end %>
 
-  <div id="items" class="min-w-full divide-y divide-gray-200 space-y-5">
-    <% if @items.any? %>
-      <% @items.each do |item| %>
-        <%= render item %>
-      <% end %>
+  <div class="min-w-full">
+    <% if @items.values.any? %>
+      <div id="items-pending">
+        <% @items[Item.statuses[:pending]]&.each do |item| %>
+          <%= render item %>
+        <% end %>
+      </div>
+
+      <hr class="my-4 border-gray-300 w-3/4 mx-auto">
+
+      <div id="items-complete">
+        <% @items[Item.statuses[:complete]]&.reverse_each do |item| %>
+          <%= render item %>
+        <% end %>
+      </div>
     <% else %>
       <p class="text-center my-10"><%= t(".no_items_found") %></p>
     <% end %>
