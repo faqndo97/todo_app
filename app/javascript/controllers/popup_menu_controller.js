@@ -1,4 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
+import { useClickOutside } from 'stimulus-use'
 
 export default class extends Controller {
   static targets = ['trigger', 'menu']
@@ -6,6 +7,7 @@ export default class extends Controller {
   static classes = ['open']
 
   connect () {
+    useClickOutside(this)
     this.open = false
     this.triggerTarget.addEventListener('click', this.toggle.bind(this))
   }
@@ -21,16 +23,14 @@ export default class extends Controller {
   openMenu () {
     this.open = true
     this.menuTarget.classList.add(...this.openClasses)
-    document.addEventListener('click', this.handleClickOutside.bind(this))
   }
 
   closeMenu () {
     this.open = false
     this.menuTarget.classList.remove(...this.openClasses)
-    document.removeEventListener('click', this.handleClickOutside.bind(this))
   }
 
-  handleClickOutside (event) {
-    if (!this.element.contains(event.target)) this.closeMenu()
+  clickOutside (event) {
+    this.closeMenu()
   }
 }
