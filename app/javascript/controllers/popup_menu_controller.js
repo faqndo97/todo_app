@@ -14,6 +14,7 @@ export default class extends Controller {
 
   disconnect () {
     this.triggerTarget.removeEventListener('click', this.toggle.bind(this))
+    this.closeMenu()
   }
 
   toggle () {
