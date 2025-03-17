@@ -115,6 +115,9 @@ es:
       no_items_found: "¡Empecemos a crear items!"
       no_items_found_with_status: No hay items con el estado %{status}
       no_selected_status: Todos los estados
+      statuses:
+        complete: Completado
+        pending: Pendiente
     new:
       title: Nuevo item
     show:

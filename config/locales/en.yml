@@ -115,6 +115,9 @@ en:
       no_items_found: Let's start to create items!
       no_items_found_with_status: No items found with the %{status} status
       no_selected_status: All statuses
+      statuses:
+        complete: Completed
+        pending: Pending
     new:
       title: New item
     show:
