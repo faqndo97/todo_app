@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @signed_id = @user.generate_token_for(:password_reset)
 
-    I18n.with_locale(I18n.default_locale) do
+    I18n.with_locale(@user.locale) do
       mail to: @user.email
     end
   end
@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @signed_id = @user.generate_token_for(:email_verification)
 
-    I18n.with_locale(I18n.default_locale) do
+    I18n.with_locale(@user.locale) do
       mail to: @user.email
     end
   end
