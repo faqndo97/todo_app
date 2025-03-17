@@ -32,7 +32,7 @@ class ListsController < ApplicationController
 
     @list.destroy
 
-    redirect_to list_items_path(Current.user.lists.first)
+    redirect_to list_items_path(Current.user.lists.first), notice: t(".success")
   end
 
   private

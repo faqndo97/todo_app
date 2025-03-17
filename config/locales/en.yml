@@ -118,6 +118,8 @@ en:
     application:
       account: Account
   lists:
+    destroy:
+      success: List was successfully destroyed
     edit:
       description_placeholder: List description...
       discard: Discard changes
