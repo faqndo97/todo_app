@@ -18,7 +18,6 @@ gem "standard"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "turbo-rails"
-gem "overcommit"
 
 group :development, :test do
   gem "brakeman", require: false
@@ -28,4 +27,5 @@ end
 group :development do
   gem "i18n-tasks"
   gem "letter_opener"
+  gem "overcommit"
 end
