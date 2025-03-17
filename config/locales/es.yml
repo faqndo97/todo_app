@@ -125,6 +125,7 @@ es:
       confirm_destroy: "¿Estás seguro de que quieres eliminar este item?"
       description: Descripción
       edit: Editar
+      list: Lista
       put_in_trash: Poner en la papelera
     update:
       item_removed: El item fue eliminado después de que entraste en la página

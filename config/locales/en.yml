@@ -125,6 +125,7 @@ en:
       confirm_destroy: Are you sure you want to delete this item?
       description: Description
       edit: Edit
+      list: List
       put_in_trash: Put in the trash
     update:
       item_removed: Item was removed after you entered the page

@@ -31,7 +31,11 @@
 
   <div>
     <div class="flex gap-6">
-      <strong><%= t(".description") %></strong>
+      <strong class="min-w-24 text-right"><%= t(".list") %></strong>
+      <%= link_to @item.list.name, list_items_path(@item.list), class: "text-blue-600 hover:underline" %>
+    </div>
+    <div class="flex gap-6 mt-2">
+      <strong class="min-w-24 text-right"><%= t(".description") %></strong>
       <div class="flex flex-col">
         <% if @item.description.present? %>
           <%= simple_format(@item.description) %>
