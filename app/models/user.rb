@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  enum :locale, I18n.available_locales.map(&:to_s).index_by(&:itself), default: :en, suffix: true, validate: true
+
   generates_token_for :email_verification, expires_in: 2.days do
     email
   end

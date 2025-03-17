@@ -1,0 +1,188 @@
+---
+es:
+  accounts:
+    edit:
+      title: Configuración de la cuenta
+    form:
+      title: Configuración de la cuenta
+      locale: Idioma
+      submit: Guardar cambios
+    show:
+      log_out: Cerrar sesión
+      title: Cuenta
+    update:
+      success: La cuenta se actualizó correctamente
+  activerecord:
+    attributes:
+      item:
+        description: Descripción
+        status: Estado
+        title: Título
+      user:
+        email: Correo electrónico
+        first_name: Nombre
+        last_name: Apellido
+        password_challenge: Contraseña actual
+    errors:
+      messages:
+        blank: no puede estar en blanco
+        inclusion: no está incluido en la lista
+      models:
+        item:
+          attributes:
+            status:
+              inclusion: no está incluido en los valores posibles. Debe ser pendiente o completo
+            title:
+              blank: no puede estar en blanco
+          blank: no puede estar en blanco
+          inclusion: no está incluido en la lista
+    models:
+      item: Item
+  errors:
+    attributes:
+      status:
+        inclusion: no está incluido en la lista
+      title:
+        blank: no puede estar en blanco
+    messages:
+      blank: no puede estar en blanco
+      inclusion: no está incluido en la lista
+  identity:
+    email_verifications:
+      create:
+        success: Hemos enviado un correo de verificación a tu dirección de correo electrónico
+      set_user:
+        failure: Ese enlace de verificación de correo electrónico no es válido
+      show:
+        failure: Ese enlace de verificación de correo electrónico no es válido
+        success: Gracias por verificar tu dirección de correo electrónico
+    emails:
+      form:
+        current_password: Contraseña actual
+        error: "%{count} errores impidieron que este usuario fuera guardado:"
+        new_email: Nuevo correo electrónico
+        resend_verification_email: Reenviar correo de verificación
+        submit: Guardar cambios
+        unverified_instructions: Hemos enviado un correo de verificación a la dirección a continuación. Revisa ese correo y sigue las instrucciones para confirmar que es tu dirección de correo electrónico.
+        unverified_title: Verifica tu correo electrónico
+        verified_title: Cambia tu correo electrónico
+      redirect_to_root:
+        success: Tu correo electrónico ha sido cambiado
+      update:
+        success: Tu correo electrónico ha sido cambiado
+    password_resets:
+      create:
+        failure: No puedes restablecer tu contraseña hasta que verifiques tu correo electrónico
+        success: Revisa tu correo electrónico para obtener instrucciones de restablecimiento
+      edit:
+        error: "%{count} errores impidieron que este usuario fuera guardado:"
+        password: Nueva contraseña
+        password_confirmation: Confirmar nueva contraseña
+        password_minimum: "%{count} caracteres mínimo"
+        submit: Guardar cambios
+        title: Restablecer tu contraseña
+      new:
+        submit: Enviar correo de restablecimiento de contraseña
+        title: ¿Olvidaste tu contraseña?
+      set_user:
+        failure: Ese enlace de restablecimiento de contraseña no es válido
+      update:
+        failure: Ese enlace de restablecimiento de contraseña no es válido
+        success: Tu contraseña se ha restablecido correctamente. Por favor, inicia sesión
+  items:
+    create:
+      success: El item se creó correctamente
+    destroy:
+      success: El item se eliminó correctamente
+    edit:
+      discard: Descartar cambios
+    form:
+      create: Añadir este item
+      description_placeholder: Añadir detalles adicionales...
+      error: "%{count} errores impidieron que este item fuera guardado:"
+      title_placeholder: Breve descripción del item...
+      update: Guardar cambios
+    index:
+      all_items_completed: ¡Todos los items están completados!
+      lists:
+        destroy: Eliminar
+        destroy_confirm: ¿Estás seguro de que quieres eliminar esta lista?
+        edit: Editar
+      new_item: Nuevo item
+      no_completed_items: Aún no hay items completados. ¡Vamos a abordar algunos pendientes!
+      no_items_found: ¡Empecemos a crear items!
+    new:
+      title: Nuevo item
+    show:
+      add_extra_details: Añadir detalles adicionales...
+      confirm_destroy: ¿Estás seguro de que quieres eliminar este item?
+      description: Descripción
+      edit: Editar
+      put_in_trash: Poner en la papelera
+    update:
+      item_removed: El item fue eliminado después de que entraste en la página
+      success: El item se actualizó correctamente
+  layouts:
+    application:
+      account: Cuenta
+  lists:
+    destroy:
+      success: La lista se eliminó correctamente
+    edit:
+      description_placeholder: Descripción de la lista...
+      discard: Descartar cambios
+      name_placeholder: Nombre de la lista...
+      submit: Guardar cambios
+      title: Editar lista
+    index:
+      new_list: Nueva lista
+    new:
+      cancel: Cancelar
+      name_placeholder: Nombre de la lista...
+      submit: Guardar
+  passwords:
+    edit:
+      title: Cambiar tu contraseña
+    form:
+      confirm_new_password: Confirmar nueva contraseña
+      current_password: Contraseña actual
+      error: "%{count} errores impidieron que este usuario fuera guardado:"
+      new_password: Nueva contraseña
+      password_minimum: "%{count} caracteres mínimo"
+      submit: Guardar cambios
+      title: Cambiar tu contraseña
+    update:
+      success: Tu contraseña ha sido cambiada
+  registrations:
+    create:
+      success: ¡Bienvenido! Te has registrado correctamente
+    new:
+      error: "%{count} errores impidieron que este usuario fuera guardado:"
+      password_minimum: "%{count} caracteres mínimo"
+      submit: Registrarse
+      title: Registrarse
+  sessions:
+    create:
+      failure: Ese correo electrónico o contraseña es incorrecto
+      success: Sesión iniciada correctamente
+    destroy:
+      success: Esa sesión ha sido cerrada
+    index:
+      created_at: Creado el
+      current_session: Sesión actual
+      ip_address: Dirección IP
+      log_out: Cerrar sesión
+      title: Dispositivos y sesiones
+      user_agent: Agente de usuario
+    new:
+      email: Correo electrónico
+      forgot_password: ¿Olvidaste tu contraseña?
+      password: Contraseña
+      sign_up: Registrarse
+      submit: Iniciar sesión
+      title: Iniciar sesión
+  user_mailer:
+    email_verification:
+      subject: Verifica tu correo electrónico
+    password_reset:
+      subject: Restablecer tu contraseña

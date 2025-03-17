@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  resource :account, only: :show
+  resource :account, only: %i[show edit update]
 
   get "up" => "rails/health#show", :as => :rails_health_check
 end

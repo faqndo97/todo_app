@@ -1,9 +1,17 @@
 ---
 en:
   accounts:
+    edit:
+      title: Account Configuration
+    form:
+      title: Account Configuration
+      locale: Language
+      submit: Save changes
     show:
       log_out: Log out
       title: Account
+    update:
+      success: Account updated successfully
   activerecord:
     attributes:
       item:
