@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
 
     @user.update!(user_params)
 
-    redirect_to account_path, notice: t(".success"), status: :see_other
+    redirect_to account_path, notice: t(".success", locale: @user.locale), status: :see_other
   end
 
   private

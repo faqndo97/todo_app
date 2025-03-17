@@ -4,7 +4,7 @@
 
   <hr class="my-4 border-gray-300">
 
-  <%= form_with(model: user, url: account_path, method: :patch, class: "contents", data: {turbo_frame: "_top"}) do |form| %>
+  <%= form_with(model: user, url: account_path, method: :patch, class: "contents", data: {turbo: "false"}) do |form| %>
     <% if user.errors.any? %>
       <div style="color: red">
         <h2><%= t(".error", count: user.errors.count) %></h2>
