@@ -32,7 +32,11 @@ class ListsController < ApplicationController
 
     @list.destroy
 
-    redirect_to list_items_path(Current.user.lists.first), notice: t(".success")
+    if Current.user.lists.any?
+      redirect_to list_items_path(Current.user.lists.first), notice: t(".success")
+    else
+      redirect_to root_path, notice: t(".success")
+    end
   end
 
   private
