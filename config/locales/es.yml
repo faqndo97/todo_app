@@ -109,8 +109,11 @@ es:
         destroy_confirm: ¿Estás seguro de que quieres eliminar esta lista?
         edit: Editar
       new_item: Nuevo item
+      filter: Filtrar
       no_completed_items: Aún no hay items completados. ¡Vamos a abordar algunos pendientes!
       no_items_found: ¡Empecemos a crear items!
+      no_items_found_with_status: "No hay items con el estado %{status}"
+      no_selected_status: Todos los estados
     new:
       title: Nuevo item
     show:

@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   def index
     @list = Current.user.lists.find(params.expect(:list_id))
-    @items = @list.items.in_order_of(:status, Item.statuses.values).group_by(&:status)
+    @items = @list.items
+      .in_order_of(:status, Item.statuses.values)
+      .then { |items| params[:status].present? ? items.where(status: params[:status]) : items }
+      .then { |items| items.group_by(&:status) }
   end
 
   def show

@@ -28,32 +28,55 @@
 
   <p class="text-sm text-gray-500 mb-4"><%= @list.description %></p>
 
-  <%= link_to new_list_item_path(@list), class: "flex items-center gap-2 rounded-md w-fit px-2 py-1 bg-blue-600 hover:bg-blue-500 text-white font-medium" do %>
-    <%= heroicon "plus", options: { class: "w-5 h-5" } %>
-    <%= t(".new_item") %>
-  <% end %>
+  <div class="flex items-center gap-2">
+    <%= link_to new_list_item_path(@list), class: "flex items-center gap-2 rounded-md w-fit px-2 py-1 bg-blue-600 hover:bg-blue-500 text-white font-medium" do %>
+      <%= heroicon "plus", options: { class: "w-5 h-5" } %>
+      <%= t(".new_item") %>
+    <% end %>
+
+    <%= heroicon "funnel", variant: :outline, options: { class: "w-5 h-5 ml-4" } %>
+    <%= form_with(url: list_items_path(@list), method: :get, class: "contents", data: {controller: "form-autosubmit", turbo_action: "advance"}) do |form| %>
+      <%= form.select :status, Item.statuses.keys.map { |status| [status.humanize, status] }, {selected: params[:status], include_blank: t(".no_selected_status")}, class: "rounded-md border border-gray-300 px-2 py-1.5", data: { action: "form-autosubmit#submit" } %>
+    <% end %>
+  </div>
 
   <div class="min-w-full mt-12">
-    <% if @items.values.any? %>
-      <div id="items-pending" data-controller="sortable" data-sortable-animation-value="150" data-sortable-handle-value=".sort-handle" data-sortable-resource-name-value="item">
-        <% @items[Item.statuses[:pending]]&.each do |item| %>
-          <%= render item %>
-        <% end %>
-        <p class="hidden only:block text-center">
-          <%= t(".all_items_completed") %>
-        </p>
-      </div>
+    <% if params[:status].present? || @items.values.any? %>
+      <% if params[:status].blank? || params[:status].present? && params[:status] == Item.statuses[:pending] %>
+        <div id="items-pending" data-controller="sortable" data-sortable-animation-value="150" data-sortable-handle-value=".sort-handle" data-sortable-resource-name-value="item">
+          <% @items[Item.statuses[:pending]]&.each do |item| %>
+            <%= render item %>
+          <% end %>
+          <p class="hidden only:block text-center">
+            <% if params[:status].present? %>
+              <%= image_tag "not_data.svg", class: "w-1/4 mx-auto mb-4" %>
+              <%= t(".no_items_found_with_status", status: params[:status].humanize) %>
+            <% else %>
+              <%= t(".all_items_completed") %>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
 
-      <hr class="my-4 border-gray-300 w-3/4 mx-auto">
+      <% unless params[:status].present? %>
+        <hr class="my-4 border-gray-300 w-3/4 mx-auto">
+      <% end %>
 
-      <div id="items-complete">
-        <% @items[Item.statuses[:complete]]&.reverse_each do |item| %>
-          <%= render item %>
-        <% end %>
-        <p class="hidden only:block text-center">
-          <%= t(".no_completed_items") %>
-        </p>
-      </div>
+      <% if params[:status].blank? || params[:status].present? && params[:status] == Item.statuses[:complete] %>
+        <div id="items-complete">
+          <% @items[Item.statuses[:complete]]&.reverse_each do |item| %>
+            <%= render item %>
+          <% end %>
+          <p class="hidden only:block text-center">
+            <% if params[:status].present? %>
+              <%= image_tag "not_data.svg", class: "w-1/4 mx-auto mb-4" %>
+              <%= t(".no_items_found_with_status", status: params[:status].humanize) %>
+            <% else %>
+              <%= t(".no_completed_items") %>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
     <% else %>
       <%= image_tag "empty_list.svg", class: "w-1/2 mx-auto" %>
       <p class="text-center my-10 text-xl"><%= t(".no_items_found") %></p>
