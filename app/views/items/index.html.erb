@@ -1,24 +1,43 @@
-<% content_for :title, t(".title") %>
+<% content_for :title, @list.name %>
 
 <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl"><%= t(".title") %></h1>
+  <div class="flex justify-between items-end select-none">
+    <h1 class="font-bold text-4xl"><%= @list.name %></h1>
+    <div data-controller="popup-menu" data-popup-menu-open-class="scale-100 opacity-100" data-turbo-temporary="true">
+      <%= heroicon "ellipsis-horizontal-circle", variant: :outline, options: {class: "w-6 h-6", data_popup_menu_target: "trigger"} %>
+      <div id="dropdown" data-popup-menu-target="menu" class="absolute right-[180px] z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 py-2 px-3.5 mt-2 border border-gray-200 origin-top-right transform scale-0 opacity-0 transition-all duration-200 ease-out">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-4" aria-labelledby="dropdownDefaultButton">
+          <li>
+            <%= link_to edit_list_path(@list), class: "flex items-center gap-2" do %>
+              <%= heroicon "pencil", variant: :outline, options: { class: "w-5 h-5" } %>
+              <%= t(".lists.edit") %>
+            <% end %>
+          </li>
+          <li>
+            <%= button_to list_path(@list), method: :delete, data: { turbo_confirm: t(".lists.destroy_confirm") }, class: "flex items-center gap-2 cursor-pointer w-full" do %>
+              <%= heroicon "trash", variant: :outline, options: { class: "w-5 h-5" } %>
+              <%= t(".lists.destroy") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <hr class="my-4 border-gray-300">
 
-  <%= link_to new_item_path, class: "flex items-center gap-2 rounded-md w-fit px-2 py-1 bg-blue-600 hover:bg-blue-500 text-white font-medium" do %>
+  <p class="text-sm text-gray-500 mb-4"><%= @list.description %></p>
+
+  <%= link_to new_list_item_path(@list), class: "flex items-center gap-2 rounded-md w-fit px-2 py-1 bg-blue-600 hover:bg-blue-500 text-white font-medium" do %>
     <%= heroicon "plus", options: { class: "w-5 h-5" } %>
     <%= t(".new_item") %>
   <% end %>
 
-  <%= turbo_stream_from("#{Current.user.id}-items") %>
-
-  <div class="min-w-full">
+  <div class="min-w-full mt-12">
     <% if @items.values.any? %>
       <div id="items-pending">
         <% @items[Item.statuses[:pending]]&.each do |item| %>
@@ -40,7 +59,8 @@
         </p>
       </div>
     <% else %>
-      <p class="text-center my-10"><%= t(".no_items_found") %></p>
+      <%= image_tag "empty_list.svg", class: "w-1/2 mx-auto" %>
+      <p class="text-center my-10 text-xl"><%= t(".no_items_found") %></p>
     <% end %>
   </div>
 </div>

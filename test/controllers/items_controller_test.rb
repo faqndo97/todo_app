@@ -8,43 +8,43 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get items_url
+    get list_items_url(@item.list)
     assert_response :success
   end
 
   test "should get new" do
-    get new_item_url
+    get new_list_item_url(@item.list)
     assert_response :success
   end
 
   test "should create item" do
     assert_difference("Item.count") do
-      post items_url, params: {item: {description: @item.description, status: @item.status, title: @item.title}}
+      post list_items_url(@item.list), params: {item: {description: @item.description, status: @item.status, title: @item.title}}
     end
 
-    assert_redirected_to item_url(Item.last)
+    assert_redirected_to list_item_url(@item.list, Item.last)
   end
 
   test "should show item" do
-    get item_url(@item)
+    get list_item_url(@item.list, @item)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_item_url(@item)
+    get edit_list_item_url(@item.list, @item)
     assert_response :success
   end
 
   test "should update item" do
-    put item_url(@item), params: {item: {description: @item.description, status: @item.status, title: @item.title}}
-    assert_redirected_to item_url(@item)
+    put list_item_url(@item.list, @item), params: {item: {description: @item.description, status: @item.status, title: @item.title}}
+    assert_redirected_to list_item_url(@item.list, @item)
   end
 
   test "should destroy item" do
     assert_difference("Item.count", -1) do
-      delete item_url(@item)
+      delete list_item_url(@item.list, @item)
     end
 
-    assert_redirected_to items_url
+    assert_redirected_to list_items_url(@item.list)
   end
 end

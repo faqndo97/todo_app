@@ -1,0 +1,24 @@
+<% content_for :title, t(".title") %>
+
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl"><%= t(".title") %></h1>
+  </div>
+
+  <hr class="my-4 border-gray-300">
+
+  <%= form_with model: @list, url: list_path(@list), method: :patch, class: "contents" do |form| %>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6">
+      <%= form.label :name, class: "font-bold min-w-6" %>
+      <%= form.text_field :name, class: "px-0 sm:px-3 py-2 w-full outline-none", required: true, placeholder: t(".name_placeholder") %>
+    </div>
+
+    <%= form.textarea :description, rows: 4, class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full border-gray-400 focus:outline-blue-600 outline-none", placeholder: t(".description_placeholder"), data: { controller: "textarea-autogrow" } %>
+
+    <div class="inline">
+      <%= form.submit t(".submit"), class: "mt-4 rounded-md px-2.5 py-1 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+
+  <%= link_to t(".discard"), list_items_path(@list), class: "text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-2.5 py-1 inline-block font-medium border border-red-500 text-red-500" %>
+</div>

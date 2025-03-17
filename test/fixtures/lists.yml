@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+work:
+  name: Work
+  description: Items to tackle at work
+  user: facundo_espinosa
+
+groceries:
+  name: Groceries
+  description: Items to buy at the store
+  user: facundo_espinosa

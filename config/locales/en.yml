@@ -90,10 +90,13 @@ en:
       update: Save Changes
     index:
       all_items_completed: All items are completed!
+      lists:
+        destroy: Destroy
+        destroy_confirm: Are you sure you want to delete this list?
+        edit: Edit
       new_item: New item
       no_completed_items: No completed items yet. Let's tackle some pending ones!
-      no_items_found: No items found
-      title: Items
+      no_items_found: Let's start to create items!
     new:
       title: New item
     show:
@@ -103,6 +106,7 @@ en:
       edit: Edit
       put_in_trash: Put in the trash
     update:
+      item_removed: Item was removed after you entered the page
       success: Item was successfully updated
   layouts:
     application:
@@ -110,6 +114,19 @@ en:
       change_password: Change password
       devices_sessions: Devices & Sessions
       log_out: Log out
+  lists:
+    edit:
+      description_placeholder: List description...
+      discard: Discard changes
+      name_placeholder: List name...
+      submit: Save Changes
+      title: Edit List
+    index:
+      new_list: New List
+    new:
+      cancel: Cancel
+      name_placeholder: List name...
+      submit: Save
   passwords:
     edit:
       confirm_new_password: Confirm new password

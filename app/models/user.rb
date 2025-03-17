@@ -12,6 +12,7 @@ class User < ApplicationRecord
   end
 
   has_many :sessions, dependent: :destroy
+  has_many :lists, dependent: :destroy
   has_many :items, dependent: :destroy
 
   validates :first_name, :last_name, presence: true

@@ -1,7 +1,7 @@
 <%# locals: (item:) %>
 
-<%= link_to item, id: dom_id(item), class: ["w-full my-5 border border-gray-300 rounded-md p-4 flex items-center gap-2", {"bg-gray-100": item.complete_status?}] do %>
-  <%= render "items/status_form", item: item, checkbox_classes: "w-5 h-5" %>
+<%= link_to list_item_path(item.list, item), id: dom_id(item), class: ["w-full my-5 border border-gray-300 rounded-md p-4 flex items-center gap-2", {"bg-gray-100": item.complete_status?}] do %>
+  <%= render "items/status_form", item: item, checkbox_classes: "w-5 h-5", id_suffix: :status_form_index %>
 
   <%= tag.span class: { "line-through": item.complete_status? } do %>
     <%= item.title %>

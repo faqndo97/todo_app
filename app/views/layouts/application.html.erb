@@ -23,26 +23,30 @@
   </head>
 
   <body>
-    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r border-gray-200" aria-label="Sidebar">
-      <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 bg-white dark:bg-gray-800">
-        <ul class="space-y-2 font-medium">
-          <li class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700 group font-bold text-2xl">
-            <%= link_to root_path, class: "w-full" do %>
+    <% if Current.user %>
+      <%= turbo_stream_from(dom_id(Current.user)) %>
+
+      <aside id="sidebar" data-turbo-permanent class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r border-gray-200" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 bg-white dark:bg-gray-800">
+          <ul class="space-y-2 font-medium">
+            <li class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700 group font-bold text-2xl">
               TodoAPP
-            <% end %>
-          </li>
-          <li>
-            <%= link_to t(".change_password"), edit_password_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" %>
-          </li>
-          <li>
-            <%= link_to t(".change_email_address"), edit_identity_email_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" %>
-          </li>
-          <li>
-            <%= link_to t(".devices_sessions"), sessions_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" %>
-          </li>
-        </ul>
-      </div>
-    </aside>
+            </li>
+            <li>
+              <%= link_to t(".change_password"), edit_password_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" %>
+            </li>
+            <li>
+              <%= link_to t(".change_email_address"), edit_identity_email_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" %>
+            </li>
+            <li>
+              <%= link_to t(".devices_sessions"), sessions_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" %>
+            </li>
+            <%= turbo_frame_tag "lists", src: lists_path, class: "contents" %>
+            <li id="new_list_container"></li>
+          </ul>
+        </div>
+      </aside>
+    <% end %>
 
     <main class="sm:ml-64">
       <div class="flex flex-col w-full items-center px-12 lg:px-44 py-16">

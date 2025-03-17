@@ -9,5 +9,5 @@
 
   <%= render "form", item: @item %>
 
-  <%= link_to t(".discard"), @item, class: "text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-2.5 py-1 inline-block font-medium border border-red-500 text-red-500" %>
+  <%= link_to t(".discard"), list_item_path(@item.list, @item), class: "text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-2.5 py-1 inline-block font-medium border border-red-500 text-red-500" %>
 </div>
