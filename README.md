@@ -1,3 +1,5 @@
+[![CI](https://github.com/faqndo97/todo_app/actions/workflows/ci.yml/badge.svg)](https://github.com/faqndo97/todo_app/actions/workflows/ci.yml)
+
 # [TODO App](https://todoapp-hotwire-572de9890c06.herokuapp.com/)
 
 ## Initial Setup
