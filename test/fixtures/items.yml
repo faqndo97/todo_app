@@ -5,12 +5,14 @@ without_description_pending:
   status: pending
   user: facundo_espinosa
   list: work
+  position: 1
 
 without_description_complete:
   title: Setup Hotwire
   status: complete
   user: facundo_espinosa
   list: work
+  position: 1
 
 with_description_pending:
   title: Buy watermelon
@@ -18,6 +20,7 @@ with_description_pending:
   status: pending
   user: facundo_espinosa
   list: groceries
+  position: 2
 
 with_description_complete:
   title: Buy bananas
@@ -25,3 +28,4 @@ with_description_complete:
   status: complete
   user: facundo_espinosa
   list: groceries
+  position: 2

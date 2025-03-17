@@ -22,7 +22,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       post list_items_url(@item.list), params: {item: {description: @item.description, status: @item.status, title: @item.title}}
     end
 
-    assert_redirected_to list_item_url(@item.list, Item.last)
+    assert_redirected_to list_items_url(@item.list)
   end
 
   test "should show item" do

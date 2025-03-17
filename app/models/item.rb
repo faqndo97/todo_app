@@ -33,6 +33,10 @@ class Item < ApplicationRecord
     broadcast_replace_to(dom_id(user), target: dom_id(list), partial: "lists/list", locals: {list:})
   end
 
+  after_destroy_commit do
+    broadcast_replace_to(dom_id(user), target: dom_id(list), partial: "lists/list", locals: {list:})
+  end
+
   private
 
   def title_or_description_previously_changed?

@@ -88,4 +88,16 @@ class ItemTest < ActiveSupport::TestCase
     assert_equal "replace", turbo_streams.first[:action]
     assert_equal "item_#{item.id}", turbo_streams.first[:target]
   end
+
+  test "broadcasts list update after destroy" do
+    item = items(:without_description_pending)
+    user = users(:facundo_espinosa)
+
+    turbo_streams = capture_turbo_stream_broadcasts dom_id(user) do
+      item.destroy!
+    end
+
+    assert_equal "replace", turbo_streams.first[:action]
+    assert_equal "list_#{item.list.id}", turbo_streams.first[:target]
+  end
 end
