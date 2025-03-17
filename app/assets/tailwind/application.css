@@ -1,3 +1,13 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+.toastify.success {
+  @apply py-2 px-8 text-gray-600 font-medium rounded-md;
+  background: var(--color-green-300);
+}
+
+.toastify.error {
+  @apply py-2 px-8 text-gray-600 font-medium rounded-md;
+  background: var(--color-red-300);
+}

@@ -11,3 +11,4 @@ pin "@stimulus-components/sortable", to: "@stimulus-components--sortable.js" # @
 pin "sortablejs" # @1.15.6
 
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin "toastify-js" # @1.12.0

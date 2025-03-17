@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
     @list = Current.user.lists.find(params.expect(:list_id))
     @item = @list.items.find_by(id: params.expect(:id))
 
-    redirect_to list_items_path(@list), notice: t(".item_removed"), status: :see_other if @item.nil?
+    return redirect_to list_items_path(@list), alert: t(".item_removed"), status: :see_other if @item.nil?
 
     @item.update(item_params)
 

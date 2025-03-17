@@ -1,10 +1,6 @@
 <% content_for :title, @item.title %>
 
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
   <div class="flex justify-between items-end select-none">
     <div class="flex gap-2 items-center">
       <%= render "status_form", item: @item, checkbox_classes: "w-[var(--text-3xl)] h-[var(--text-3xl)]", id_suffix: :status_form_show %>

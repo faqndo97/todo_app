@@ -18,11 +18,20 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "toastify.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <% if notice.present? %>
+      <div data-controller="toast" data-toast-text-value="<%= notice %>" data-toast-close-value="true" data-toast-stop-on-focus-value="true" data-toast-class-name-value="success"></div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div data-controller="toast" data-toast-text-value="<%= alert %>" data-toast-close-value="true" data-toast-stop-on-focus-value="true" data-toast-class-name-value="error"></div>
+    <% end %>
+
     <% if Current.user %>
       <%= turbo_stream_from(dom_id(Current.user)) %>
 
