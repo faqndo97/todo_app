@@ -4,9 +4,10 @@ es:
     edit:
       title: Configuración de la cuenta
     form:
-      title: Configuración de la cuenta
+      error: "%{count} errores impidieron que esta cuenta fuera guardada:"
       locale: Idioma
       submit: Guardar cambios
+      title: Configuración de la cuenta
     show:
       log_out: Cerrar sesión
       title: Cuenta
@@ -83,7 +84,7 @@ es:
         title: Restablecer tu contraseña
       new:
         submit: Enviar correo de restablecimiento de contraseña
-        title: ¿Olvidaste tu contraseña?
+        title: "¿Olvidaste tu contraseña?"
       set_user:
         failure: Ese enlace de restablecimiento de contraseña no es válido
       update:
@@ -103,22 +104,22 @@ es:
       title_placeholder: Breve descripción del item...
       update: Guardar cambios
     index:
-      all_items_completed: ¡Todos los items están completados!
+      all_items_completed: "¡Todos los items están completados!"
+      filter: Filtrar
       lists:
         destroy: Eliminar
-        destroy_confirm: ¿Estás seguro de que quieres eliminar esta lista?
+        destroy_confirm: "¿Estás seguro de que quieres eliminar esta lista?"
         edit: Editar
       new_item: Nuevo item
-      filter: Filtrar
       no_completed_items: Aún no hay items completados. ¡Vamos a abordar algunos pendientes!
-      no_items_found: ¡Empecemos a crear items!
-      no_items_found_with_status: "No hay items con el estado %{status}"
+      no_items_found: "¡Empecemos a crear items!"
+      no_items_found_with_status: No hay items con el estado %{status}
       no_selected_status: Todos los estados
     new:
       title: Nuevo item
     show:
       add_extra_details: Añadir detalles adicionales...
-      confirm_destroy: ¿Estás seguro de que quieres eliminar este item?
+      confirm_destroy: "¿Estás seguro de que quieres eliminar este item?"
       description: Descripción
       edit: Editar
       put_in_trash: Poner en la papelera
@@ -158,7 +159,7 @@ es:
       success: Tu contraseña ha sido cambiada
   registrations:
     create:
-      success: ¡Bienvenido! Te has registrado correctamente
+      success: "¡Bienvenido! Te has registrado correctamente"
     new:
       error: "%{count} errores impidieron que este usuario fuera guardado:"
       password_minimum: "%{count} caracteres mínimo"
@@ -179,7 +180,7 @@ es:
       user_agent: Agente de usuario
     new:
       email: Correo electrónico
-      forgot_password: ¿Olvidaste tu contraseña?
+      forgot_password: "¿Olvidaste tu contraseña?"
       password: Contraseña
       sign_up: Registrarse
       submit: Iniciar sesión

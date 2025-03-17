@@ -4,9 +4,10 @@ en:
     edit:
       title: Account Configuration
     form:
-      title: Account Configuration
+      error: "%{count} errors prohibited this account from being saved:"
       locale: Language
       submit: Save changes
+      title: Account Configuration
     show:
       log_out: Log out
       title: Account
@@ -104,16 +105,16 @@ en:
       update: Save Changes
     index:
       all_items_completed: All items are completed!
+      filter: Filter
       lists:
         destroy: Destroy
         destroy_confirm: Are you sure you want to delete this list?
         edit: Edit
       new_item: New item
-      filter: Filter
       no_completed_items: No completed items yet. Let's tackle some pending ones!
       no_items_found: Let's start to create items!
+      no_items_found_with_status: No items found with the %{status} status
       no_selected_status: All statuses
-      no_items_found_with_status: "No items found with the %{status} status"
     new:
       title: New item
     show:
