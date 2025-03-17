@@ -10,6 +10,8 @@ class Item < ApplicationRecord
 
   normalizes :title, with: ->(title) { title.strip }
 
+  acts_as_list scope: [:status, :list_id]
+
   after_create_commit do
     broadcast_replace_to(dom_id(user), target: dom_id(list), partial: "lists/list", locals: {list:})
     broadcast_append_to(dom_id(user), target: "items-pending", partial: "items/item")

@@ -39,7 +39,7 @@
 
   <div class="min-w-full mt-12">
     <% if @items.values.any? %>
-      <div id="items-pending">
+      <div id="items-pending" data-controller="sortable" data-sortable-animation-value="150" data-sortable-handle-value=".sort-handle" data-sortable-resource-name-value="item">
         <% @items[Item.statuses[:pending]]&.each do |item| %>
           <%= render item %>
         <% end %>

@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.2"
 
 gem "authentication-zero"
+gem "acts_as_list"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "erb_lint"

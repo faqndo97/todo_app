@@ -1,6 +1,10 @@
 <%# locals: (item:) %>
 
-<%= link_to list_item_path(item.list, item), id: dom_id(item), class: ["w-full my-5 border border-gray-300 rounded-md p-4 flex items-center gap-2", {"bg-gray-100": item.complete_status?}] do %>
+<%= link_to list_item_path(item.list, item), id: dom_id(item), data: {sortable_update_url: list_item_path(item.list, item)}, class: ["w-full my-5 border border-gray-300 rounded-md p-4 flex items-center gap-2", {"bg-gray-100": item.complete_status?}] do %>
+  <% if item.pending_status? %>
+    <%= heroicon "bars-3", options: { class: "w-5 h-5 sort-handle" } %>
+  <% end %>
+
   <%= render "items/status_form", item: item, checkbox_classes: "w-5 h-5", id_suffix: :status_form_index %>
 
   <%= tag.span class: { "line-through": item.complete_status? } do %>

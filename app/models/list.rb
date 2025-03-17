@@ -2,7 +2,7 @@ class List < ApplicationRecord
   extend ActionView::RecordIdentifier
 
   belongs_to :user
-  has_many :items, dependent: :destroy
+  has_many :items, -> { order(position: :asc) }, dependent: :destroy
 
   validates :name, presence: true
 

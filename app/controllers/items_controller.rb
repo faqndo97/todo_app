@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @item = Current.user.items.build(**item_params, list: @list)
 
     if @item.save
-      redirect_to list_item_path(@list, @item), notice: t(".success")
+      redirect_to list_items_path(@list), notice: t(".success")
     else
       render :new, status: :unprocessable_entity
     end
@@ -51,6 +51,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.expect(item: [:title, :description, :status])
+    params.expect(item: [:title, :description, :status, :position])
   end
 end
