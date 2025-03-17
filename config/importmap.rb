@@ -10,6 +10,7 @@ pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
 pin "@stimulus-components/sortable", to: "@stimulus-components--sortable.js" # @5.0.2
 pin "sortablejs" # @1.15.6
 pin "flowbite", to: "flowbite.js" # @3.1.2
+pin "toastify-js" # @1.12.0
 
 pin_all_from "app/javascript/controllers", under: "controllers"
-pin "toastify-js" # @1.12.0
+pin_all_from "app/javascript/turbo_stream_actions", under: "turbo_stream_actions"

@@ -37,7 +37,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update item" do
     put list_item_url(@item.list, @item), params: {item: {description: @item.description, status: @item.status, title: @item.title}}
-    assert_redirected_to list_item_url(@item.list, @item)
+    assert_turbo_stream action: "redirect_to"
   end
 
   test "should destroy item" do

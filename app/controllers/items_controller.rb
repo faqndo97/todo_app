@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
     @item.update(item_params)
 
     if request.put?
-      redirect_to list_item_path(@item.list, @item), notice: t(".success"), status: :see_other
+      render turbo_stream: turbo_stream.redirect_to(list_item_path(@item.list, @item), flash: {partial: "shared/toast", locals: {variant: :success, text: t(".success")}})
     end
   end
 
