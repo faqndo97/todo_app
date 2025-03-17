@@ -1,0 +1,10 @@
+
+<%= content_for :title, t(".title") %>
+
+<div class="w-full">
+  <div class="flex gap-16 mb-12">
+    <%= turbo_frame_tag "password_edit", src: edit_password_path, class: "contents" %>
+    <%= turbo_frame_tag "email_edit", src: edit_identity_email_path, class: "contents" %>
+  </div>
+  <%= turbo_frame_tag "sessions", src: sessions_path, class: "contents" %>
+</div>

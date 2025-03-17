@@ -22,8 +22,7 @@ export default class extends Controller {
     gravity: { type: String, default: GRAVITY.TOP },
     position: { type: String, default: POSITION.CENTER },
     stopOnFocus: Boolean,
-    className: String,
-    style: Object
+    className: String
   }
 
   connect () {
@@ -46,8 +45,7 @@ export default class extends Controller {
       gravity: this.gravityValue,
       position: this.positionValue,
       stopOnFocus: this.stopOnFocusValue,
-      className: this.classNameValue,
-      style: this.styleValue
+      className: this.classNameValue
     }).showToast()
   }
 }

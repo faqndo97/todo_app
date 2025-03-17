@@ -1,0 +1,2 @@
+<%= turbo_stream.update "email_edit", partial: "form", locals: { user: Current.user } %>
+<%= turbo_stream.append "toast_container", partial: "shared/toast", locals: { text: t(".success"), variant: :success } %>

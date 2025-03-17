@@ -1,0 +1,15 @@
+<%# locals: (text:, variant: :success, duration: nil, destination: nil, new_window: nil, close: nil, gravity: nil, position: nil, stop_on_focus: nil) %>
+
+<%= tag.div data: {
+  turbo_temporary: true,
+  controller: "toast",
+  toast_text_value: text,
+  toast_duration_value: duration,
+  toast_destination_value: destination,
+  toast_new_window_value: new_window,
+  toast_close_value: close,
+  toast_gravity_value: gravity,
+  toast_position_value: position,
+  toast_stop_on_focus_value: stop_on_focus,
+  toast_class_name_value: variant
+} %>

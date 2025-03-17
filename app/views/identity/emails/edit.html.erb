@@ -1,41 +1,4 @@
-<p style="color: red"><%= alert %></p>
 
-<div class="md:w-2/3 w-full">
-  <% if Current.user.verified? %>
-    <% content_for :title, t(".verified_title") %>
-    <h1 class="font-bold text-4xl"><%= t(".verified_title") %></h1>
-  <% else %>
-    <% content_for :title, t(".unverified_title") %>
-    <h1 class="font-bold text-4xl"><%= t(".unverified_title") %></h1>
-    <p class="my-5"><%= t(".unverified_instructions") %></p>
-    <p class="my-5"><%= button_to t(".resend_verification_email"), identity_email_verification_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %></p>
-  <% end %>
-
-  <%= form_with(url: identity_email_path, method: :patch, class: "contents") do |form| %>
-    <% if @user.errors.any? %>
-      <div style="color: red">
-        <h2><%= t(".error", count: @user.errors.count) %></h2>
-
-        <ul>
-          <% @user.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="my-5">
-      <%= form.label :email, t(".new_email") %>
-      <%= form.email_field :email, required: true, autofocus: true, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": @user.errors[:email].none?, "border-red-400 focus:outline-red-600": @user.errors[:email].any?}] %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :password_challenge, t(".current_password") %>
-      <%= form.password_field :password_challenge, required: true, autocomplete: "current-password", class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": @user.errors[:password_challenge].none?, "border-red-400 focus:outline-red-600": @user.errors[:password_challenge].any?}] %>
-    </div>
-
-    <div class="inline">
-      <%= form.submit t(".submit"), class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
-    </div>
-  <% end %>
-</div>
+<%= turbo_frame_tag "email_edit", class: "contents" do %>
+  <%= render "form", user: Current.user %>
+<% end %>

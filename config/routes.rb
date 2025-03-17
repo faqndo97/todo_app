@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   draw :authentication
 
-  root "passwords#edit"
+  root "accounts#show"
 
-  resources :lists do
+  resources :lists, except: :show do
     resources :items
   end
+
+  resource :account, only: :show
 
   get "up" => "rails/health#show", :as => :rails_health_check
 end

@@ -1,5 +1,9 @@
 ---
 en:
+  accounts:
+    show:
+      log_out: Log out
+      title: Account
   activerecord:
     attributes:
       item:
@@ -45,7 +49,7 @@ en:
         failure: That email verification link is invalid
         success: Thank you for verifying your email address
     emails:
-      edit:
+      form:
         current_password: Current password
         error: "%{count} errors prohibited this user from being saved:"
         new_email: New email
@@ -55,6 +59,8 @@ en:
         unverified_title: Verify your email
         verified_title: Change your email
       redirect_to_root:
+        success: Your email has been changed
+      update:
         success: Your email has been changed
     password_resets:
       create:
@@ -110,10 +116,7 @@ en:
       success: Item was successfully updated
   layouts:
     application:
-      change_email_address: Change email address
-      change_password: Change password
-      devices_sessions: Devices & Sessions
-      log_out: Log out
+      account: Account
   lists:
     edit:
       description_placeholder: List description...
@@ -129,6 +132,8 @@ en:
       submit: Save
   passwords:
     edit:
+      title: Change your password
+    form:
       confirm_new_password: Confirm new password
       current_password: Current password
       error: "%{count} errors prohibited this user from being saved:"
@@ -154,6 +159,7 @@ en:
       success: That session has been logged out
     index:
       created_at: Created at
+      current_session: Current Session
       ip_address: Ip Address
       log_out: Log out
       title: Devices & Sessions
