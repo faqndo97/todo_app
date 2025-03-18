@@ -8,6 +8,8 @@ es:
       locale: Idioma
       submit: Guardar cambios
       title: Configuración de la cuenta
+      english: Inglés
+      spanish: Español
     show:
       log_out: Cerrar sesión
       title: Cuenta

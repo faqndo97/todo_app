@@ -8,6 +8,8 @@ en:
       locale: Language
       submit: Save changes
       title: Account Configuration
+      english: English
+      spanish: Spanish
     show:
       log_out: Log out
       title: Account

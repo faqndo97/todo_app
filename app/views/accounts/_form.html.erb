@@ -19,7 +19,7 @@
 
     <div class="my-5">
       <%= form.label :locale, t(".locale") %>
-      <%= form.select :locale, [["🇺🇸 English", "en"], ["🇪🇸 Spanish", "es"]], {selected: user.locale}, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:locale].none?, "border-red-400 focus:outline-red-600": user.errors[:locale].any?}] %>
+      <%= form.select :locale, [["🇺🇸 #{t(".english")}", "en"], ["🇪🇸 #{t(".spanish")}", "es"]], {selected: user.locale}, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:locale].none?, "border-red-400 focus:outline-red-600": user.errors[:locale].any?}] %>
     </div>
 
     <div class="inline">
