@@ -54,7 +54,13 @@
               <li class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <%= link_to t(".account"), account_path, data: {drawer_toggle: "sidebar"} %>
               </li>
-              <%= turbo_frame_tag "lists", src: lists_path, class: "contents" %>
+              <%= turbo_frame_tag "lists", src: lists_path, class: "contents" do %>
+                <div class="animate-pulse">
+                  <div class="w-full h-8 bg-gray-300 rounded-md mb-4"></div>
+                  <div class="w-full h-8 bg-gray-300 rounded-md mb-4"></div>
+                  <div class="w-full h-8 bg-gray-300 rounded-md mb-4"></div>
+                </div>
+              <% end %>
               <li id="new_list_container"></li>
             </ul>
           </div>
