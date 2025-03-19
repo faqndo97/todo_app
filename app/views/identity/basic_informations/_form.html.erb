@@ -1,0 +1,29 @@
+<%# locals: (user:) %>
+
+<%= form_with(model: user, url: identity_basic_information_path, id: "basic_information_form", method: :patch, class: "contents") do |form| %>
+  <% if user.errors.any? %>
+    <div class="errors" style="color: red">
+      <h2><%= t(".error", count: user.errors.count) %></h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:first_name].none?, "border-red-400 focus:outline-red-600": user.errors[:first_name].any?}], data: {valid_classes: "border-gray-400 focus:outline-blue-600", invalid_classes: "border-red-400 focus:outline-red-600"} %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:last_name].none?, "border-red-400 focus:outline-red-600": user.errors[:last_name].any?}], data: {valid_classes: "border-gray-400 focus:outline-blue-600", invalid_classes: "border-red-400 focus:outline-red-600"} %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit t(".submit"), class: "w-full sm:w-auto rounded-md px-2 py-1 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

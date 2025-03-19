@@ -4,7 +4,7 @@
 
   <hr class="my-4 border-gray-300">
 
-  <%= form_with(url: password_path, method: :patch, class: "contents") do |form| %>
+  <%= form_with(url: password_path, method: :patch, id: "password_form", class: "contents") do |form| %>
     <% if user.errors.any? %>
       <div style="color: red">
         <h2><%= t(".error", count: user.errors.count) %></h2>

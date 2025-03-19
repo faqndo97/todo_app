@@ -1,14 +1,15 @@
-class PasswordsController < ApplicationController
-  before_action :set_user
-
+class Identity::BasicInformationsController < ApplicationController
   def edit
+    @user = Current.user
   end
 
   def update
+    @user = Current.user
+
     if @user.update(user_params)
       render turbo_stream: [
         turbo_stream.append("toast_container", partial: "shared/toast", locals: {variant: :success, text: t(".success")}),
-        turbo_stream.reset_form("password_form")
+        turbo_stream.replace("basic_information_form", partial: "identity/basic_informations/form", locals: {user: @user})
       ]
     else
       render :edit, status: :unprocessable_entity
@@ -17,11 +18,7 @@ class PasswordsController < ApplicationController
 
   private
 
-  def set_user
-    @user = Current.user
-  end
-
   def user_params
-    params.permit(:password, :password_confirmation, :password_challenge).with_defaults(password_challenge: "")
+    params.require(:user).permit(:first_name, :last_name)
   end
 end

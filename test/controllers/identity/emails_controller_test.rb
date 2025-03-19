@@ -13,9 +13,10 @@ class Identity::EmailsControllerTest < ActionDispatch::IntegrationTest
   test "should update email" do
     patch identity_email_url, params: {email: "new_email@hey.com", password_challenge: "Secret1*3*5*"}, as: :turbo_stream
 
-    assert_turbo_stream action: "update", target: "email_edit" do
-      assert_select "h1", text: "Verify your email"
+    assert_turbo_stream action: "append", target: "toast_container" do
+      assert_select "div[data-toast-text-value='Your email has been changed']"
     end
+    assert_turbo_stream action: "reset_form", target: "email_form"
   end
 
   test "should not update email with wrong password challenge" do

@@ -1,20 +1,8 @@
 ---
 es:
   accounts:
-    edit:
-      title: Configuración de la cuenta
-    form:
-      error: "%{count} errores impidieron que esta cuenta fuera guardada:"
-      locale: Idioma
-      submit: Guardar cambios
-      title: Configuración de la cuenta
-      english: Inglés
-      spanish: Español
     show:
-      log_out: Cerrar sesión
       title: Cuenta
-    update:
-      success: La cuenta se actualizó correctamente
   activerecord:
     attributes:
       item:
@@ -39,6 +27,12 @@ es:
               blank: no puede estar en blanco
           blank: no puede estar en blanco
           inclusion: no está incluido en la lista
+        user:
+          attributes:
+            password_challenge:
+              invalid: es inválida
+            password_confirmation:
+              confirmation: no coincide con la contraseña
     models:
       item: Item
   errors:
@@ -50,7 +44,17 @@ es:
     messages:
       blank: no puede estar en blanco
       inclusion: no está incluido en la lista
+      record_invalid: no se puede guardar
+      taken: ya está en uso
   identity:
+    basic_informations:
+      edit:
+        account_information_title: Información de la cuenta
+      form:
+        error: "%{count} errores impidieron que esta cuenta fuera guardada:"
+        submit: Guardar cambios
+      update:
+        success: Información de la cuenta actualizada correctamente
     email_verifications:
       create:
         success: Hemos enviado un correo de verificación a tu dirección de correo electrónico
@@ -92,6 +96,17 @@ es:
       update:
         failure: Ese enlace de restablecimiento de contraseña no es válido
         success: Tu contraseña se ha restablecido correctamente. Por favor, inicia sesión
+    preferences:
+      edit:
+        account_preferences_title: Preferencias de la cuenta
+        english: Inglés
+        error: "%{count} errores impidieron que esta cuenta fuera guardada:"
+        locale: Idioma
+        spanish: Español
+        submit: Guardar cambios
+        title: Configuración de la cuenta
+      update:
+        success: Preferencias de la cuenta actualizadas correctamente
   items:
     create:
       success: El item se creó correctamente

@@ -2,7 +2,30 @@
 <%= content_for :title, t(".title") %>
 
 <div class="w-full">
-  <%= turbo_frame_tag "account_edit", src: edit_account_path, class: "contents" %>
+  <div class="w-full flex flex-col md:flex-row gap-16">
+    <div class="w-full md:w-1/2">
+      <%= turbo_frame_tag "preferences_edit", src: edit_identity_preferences_path, class: "contents" do %>
+        <div class="w-3/4 h-12 bg-gray-300 rounded-md mb-4"></div>
+        <hr class="my-4 border-gray-300">
+        <div class="w-1/6 h-8 bg-gray-300 rounded-md mb-4"></div>
+        <div class="w-full h-12 bg-gray-300 rounded-md mb-4"></div>
+        <div class="w-1/6 h-8 bg-gray-300 rounded-md mb-4"></div>
+      <% end %>
+    </div>
+
+    <div class="w-full md:w-1/2 mt-4 md:mt-0">
+      <%= turbo_frame_tag "basic_information_edit", src: edit_identity_basic_information_path, class: "contents" do %>
+        <div class="w-3/4 h-12 bg-gray-300 rounded-md mb-4"></div>
+        <hr class="my-4 border-gray-300">
+        <div class="w-1/6 h-8 bg-gray-300 rounded-md mb-4"></div>
+        <div class="w-full h-12 bg-gray-300 rounded-md mb-4"></div>
+        <div class="w-1/6 h-8 bg-gray-300 rounded-md mb-4"></div>
+        <div class="w-full h-12 bg-gray-300 rounded-md mb-4"></div>
+        <div class="w-1/6 h-8 bg-gray-300 rounded-md mb-4"></div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="flex flex-col md:flex-row gap-8 md:gap-16 my-8 md:my-12">
     <%= turbo_frame_tag "password_edit", src: edit_password_path, class: "contents" do %>
       <div class="w-1/2 animate-pulse">

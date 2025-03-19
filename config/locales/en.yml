@@ -1,20 +1,8 @@
 ---
 en:
   accounts:
-    edit:
-      title: Account Configuration
-    form:
-      error: "%{count} errors prohibited this account from being saved:"
-      locale: Language
-      submit: Save changes
-      title: Account Configuration
-      english: English
-      spanish: Spanish
     show:
-      log_out: Log out
       title: Account
-    update:
-      success: Account updated successfully
   activerecord:
     attributes:
       item:
@@ -39,6 +27,12 @@ en:
               blank: can't be blank
           blank: can't be blank
           inclusion: is not included in the list
+        user:
+          attributes:
+            password_challenge:
+              invalid: is invalid
+            password_confirmation:
+              confirmation: doesn't match password
     models:
       item: Item
   errors:
@@ -50,7 +44,17 @@ en:
     messages:
       blank: can't be blank
       inclusion: is not included in the list
+      record_invalid: can't be saved
+      taken: has already been taken
   identity:
+    basic_informations:
+      edit:
+        account_information_title: Account Information
+      form:
+        error: "%{count} errors prohibited this account from being saved:"
+        submit: Save changes
+      update:
+        success: Account Information updated successfully
     email_verifications:
       create:
         success: We sent a verification email to your email address
@@ -92,6 +96,17 @@ en:
       update:
         failure: That password reset link is invalid
         success: Your password was reset successfully. Please sign in
+    preferences:
+      edit:
+        account_preferences_title: Account Preferences
+        english: English
+        error: "%{count} errors prohibited this account from being saved:"
+        locale: Language
+        spanish: Spanish
+        submit: Save changes
+        title: Account Configuration
+      update:
+        success: Account Preferences updated successfully
   items:
     create:
       success: Item was successfully created
