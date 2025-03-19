@@ -5,7 +5,12 @@ class Identity::EmailsController < ApplicationController
   end
 
   def update
-    unless @user.update(user_params)
+    if @user.update(user_params)
+      render turbo_stream: [
+        turbo_stream.append("toast_container", partial: "shared/toast", locals: {variant: :success, text: t(".success")}),
+        turbo_stream.reset_form("email_form")
+      ]
+    else
       render :edit, status: :unprocessable_entity
     end
   end

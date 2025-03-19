@@ -1,7 +1,7 @@
 <%# locals: (user:) %>
 <%= turbo_frame_tag "email_edit", class: "contents" do %>
   <div class="w-full">
-    <% if Current.user.verified? %>
+    <% if !@user.valid? || @user.verified? %>
       <% content_for :title, t(".verified_title") %>
       <h1 class="font-bold text-4xl"><%= t(".verified_title") %></h1>
     <% else %>
@@ -13,9 +13,9 @@
 
     <hr class="my-4 border-gray-300">
 
-    <%= form_with(url: identity_email_path, method: :patch, class: "contents") do |form| %>
+    <%= form_with(url: identity_email_path, method: :patch, id: "email_form", class: "contents") do |form| %>
       <% if user.errors.any? %>
-        <div style="color: red">
+        <div class="errors" style="color: red">
           <h2><%= t(".error", count: user.errors.count) %></h2>
 
           <ul>
@@ -28,12 +28,12 @@
 
       <div class="my-5">
         <%= form.label :email, t(".new_email") %>
-        <%= form.email_field :email, required: true, autofocus: true, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:email].none?, "border-red-400 focus:outline-red-600": user.errors[:email].any?}] %>
+        <%= form.email_field :email, required: true, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:email].none?, "border-red-400 focus:outline-red-600": user.errors[:email].any?}], data: {valid_classes: "border-gray-400 focus:outline-blue-600", invalid_classes: "border-red-400 focus:outline-red-600"} %>
       </div>
 
       <div class="my-5">
         <%= form.label :password_challenge, t(".current_password") %>
-        <%= form.password_field :password_challenge, required: true, autocomplete: "current-password", class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:password_challenge].none?, "border-red-400 focus:outline-red-600": user.errors[:password_challenge].any?}] %>
+        <%= form.password_field :password_challenge, required: true, autocomplete: "current-password", class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:password_challenge].none?, "border-red-400 focus:outline-red-600": user.errors[:password_challenge].any?}], data: {valid_classes: "border-gray-400 focus:outline-blue-600", invalid_classes: "border-red-400 focus:outline-red-600"} %>
       </div>
 
       <div class="inline">

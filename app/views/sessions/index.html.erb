@@ -7,7 +7,7 @@
 
     <div id="sessions" class="my-5">
       <% @sessions.each do |session| %>
-        <div id="<%= dom_id session %>">
+        <div id="<%= dom_id session %>" class="my-5">
           <p>
             <strong><%= t(".user_agent") %>:</strong>
             <%= session.user_agent %>
