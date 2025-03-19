@@ -7,7 +7,7 @@
 
   <%= render "items/status_form", item: item, checkbox_classes: "w-5 h-5", id_suffix: :status_form_index %>
 
-  <%= tag.span class: { "line-through": item.complete_status? } do %>
+  <%= tag.span class: { "line-through": item.complete_status? }, style: "view-transition-name: #{dom_id(item, :title)}" do %>
     <%= item.title %>
   <% end %>
 

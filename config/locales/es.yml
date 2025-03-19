@@ -99,6 +99,7 @@ es:
       success: El item se eliminó correctamente
     edit:
       discard: Descartar cambios
+      title: Editar item
     form:
       create: Añadir este item
       description_placeholder: Añadir detalles adicionales...

@@ -4,7 +4,7 @@
   <div class="flex justify-between items-end select-none">
     <div class="flex gap-2 items-center">
       <%= render "status_form", item: @item, checkbox_classes: "w-[var(--text-3xl)] h-[var(--text-3xl)]", id_suffix: :status_form_show %>
-      <h1 class="font-bold text-4xl"><%= @item.title %></h1>
+      <h1 class="font-bold text-4xl" style="view-transition-name: <%= dom_id(@item, :title) %>"><%= @item.title %></h1>
     </div>
     <div data-controller="popup-menu" data-popup-menu-open-class="scale-100 opacity-100">
       <%= heroicon "ellipsis-horizontal-circle", variant: :outline, options: {class: "w-6 h-6", data_popup_menu_target: "trigger"} %>
@@ -32,7 +32,7 @@
   <div>
     <div class="flex gap-6">
       <strong class="min-w-24 text-right"><%= t(".list") %></strong>
-      <%= link_to @item.list.name, list_items_path(@item.list), class: "text-blue-600 hover:underline" %>
+      <%= link_to @item.list.name, list_items_path(@item.list), class: "text-blue-600 hover:underline", style: "view-transition-name: #{dom_id(@item.list, :name)}" %>
     </div>
     <div class="flex gap-6 mt-2">
       <strong class="min-w-24 text-right"><%= t(".description") %></strong>

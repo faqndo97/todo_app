@@ -28,6 +28,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "hotwire-spark"
   gem "i18n-tasks"
   gem "letter_opener"
   gem "overcommit"

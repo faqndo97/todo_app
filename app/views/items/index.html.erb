@@ -2,7 +2,7 @@
 
 <div class="w-full">
   <div class="flex justify-between items-end select-none">
-    <h1 class="font-bold text-4xl"><%= @list.name %></h1>
+    <h1 class="font-bold text-4xl" style="view-transition-name: <%= dom_id(@list, :name) %>"><%= @list.name %></h1>
     <div data-controller="popup-menu" data-popup-menu-open-class="scale-100 opacity-100">
       <%= heroicon "ellipsis-horizontal-circle", variant: :outline, options: {class: "w-6 h-6", data_popup_menu_target: "trigger"} %>
       <div id="dropdown" data-popup-menu-target="menu" class="absolute right-[50px] lg:right-[180px] z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 py-2 px-3.5 mt-2 border border-gray-200 origin-top-right transform scale-0 opacity-0 transition-all duration-200 ease-out">

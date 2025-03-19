@@ -99,6 +99,7 @@ en:
       success: Item was successfully destroyed
     edit:
       discard: Discard changes
+      title: Edit item
     form:
       create: Add this item
       description_placeholder: Add extra details...
