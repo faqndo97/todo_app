@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "new_list" do %>
-  <%= form_with model: @list, url: lists_path, class: "w-full", data: {turbo_frame: "lists"} do |form| %>
+  <%= form_with model: @list, url: lists_path, id: dom_id(@list), class: "w-full", data: {turbo_frame: "lists"} do |form| %>
     <%= form.text_field :name, class: "w-full p-2 border border-gray-300 rounded-md", placeholder: t(".name_placeholder") %>
     <div class="flex gap-2 mt-2">
       <%= form.submit t(".submit"), class: "w-1/2 px-2.5 py-1 bg-blue-600 text-white font-medium rounded-md" %>

@@ -10,6 +10,7 @@ export default class extends Controller {
     useClickOutside(this)
     this.open = false
     this.triggerTarget.addEventListener('click', this.toggle.bind(this))
+    document.addEventListener('turbo:before-cache', this.closeMenu.bind(this))
   }
 
   disconnect () {

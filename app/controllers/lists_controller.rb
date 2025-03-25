@@ -12,7 +12,10 @@ class ListsController < ApplicationController
 
     @list.save
 
-    redirect_to lists_path
+    render turbo_stream: [
+      turbo_stream.redirect_to(list_items_path(@list), flash: {partial: "shared/toast", locals: {variant: :success, text: "List created successfully"}}),
+      turbo_stream.update("new_list", partial: "lists/new_list_btn")
+    ]
   end
 
   def edit

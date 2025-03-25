@@ -1,27 +1,38 @@
 <% content_for :title, @list.name %>
 
+<%= turbo_stream_from(dom_id(@list, :items)) %>
+
 <div class="w-full">
   <div class="flex justify-between items-end select-none">
     <h1 class="font-bold text-4xl" style="view-transition-name: <%= dom_id(@list, :name) %>"><%= @list.name %></h1>
-    <div data-controller="popup-menu" data-popup-menu-open-class="scale-100 opacity-100">
-      <%= heroicon "ellipsis-horizontal-circle", variant: :outline, options: {class: "w-6 h-6", data_popup_menu_target: "trigger"} %>
-      <div id="dropdown" data-popup-menu-target="menu" class="absolute right-[50px] lg:right-[180px] z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 py-2 px-3.5 mt-2 border border-gray-200 origin-top-right transform scale-0 opacity-0 transition-all duration-200 ease-out">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-4" aria-labelledby="dropdownDefaultButton">
-          <li>
-            <%= link_to edit_list_path(@list), class: "flex items-center gap-2" do %>
-              <%= heroicon "pencil", variant: :outline, options: { class: "w-5 h-5" } %>
-              <%= t(".lists.edit") %>
-            <% end %>
-          </li>
-          <li>
-            <%= button_to list_path(@list), method: :delete, data: { turbo_confirm: t(".lists.destroy_confirm") }, class: "flex items-center gap-2 cursor-pointer w-full" do %>
-              <%= heroicon "trash", variant: :outline, options: { class: "w-5 h-5" } %>
-              <%= t(".lists.destroy") %>
-            <% end %>
-          </li>
-        </ul>
+
+    <% if Current.user.admin_of?(@list) %>
+      <div data-controller="popup-menu" data-popup-menu-open-class="scale-100 opacity-100">
+        <%= heroicon "ellipsis-horizontal-circle", variant: :outline, options: {class: "w-6 h-6", data_popup_menu_target: "trigger"} %>
+        <div id="dropdown" data-popup-menu-target="menu" class="absolute right-[50px] lg:right-[180px] z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 py-2 px-3.5 mt-2 border border-gray-200 origin-top-right transform scale-0 opacity-0 transition-all duration-200 ease-out">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-col gap-4" aria-labelledby="dropdownDefaultButton">
+            <li>
+              <%= link_to edit_list_path(@list), class: "flex items-center gap-2" do %>
+                <%= heroicon "pencil", variant: :outline, options: { class: "w-5 h-5" } %>
+                <%= t(".lists.edit") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to list_memberships_path(@list), class: "flex items-center gap-2" do %>
+                <%= heroicon "user-group", variant: :outline, options: { class: "w-5 h-5" } %>
+                <%= t(".lists.memberships") %>
+              <% end %>
+            </li>
+            <li>
+              <%= button_to list_path(@list), method: :delete, data: { turbo_confirm: t(".lists.destroy_confirm") }, class: "flex items-center gap-2 cursor-pointer w-full" do %>
+                <%= heroicon "trash", variant: :outline, options: { class: "w-5 h-5" } %>
+                <%= t(".lists.destroy") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
   <hr class="my-4 border-gray-300">
@@ -78,7 +89,6 @@
         </div>
       <% end %>
     <% else %>
-      <%= image_tag "empty_list.svg", class: "w-1/2 mx-auto" %>
       <p class="text-center my-10 text-xl"><%= t(".no_items_found") %></p>
     <% end %>
   </div>

@@ -1,0 +1,17 @@
+<p>Hey there,</p>
+
+<p>You've been invited to join to TodoApp by <%= @inviter.email %>.</p>
+
+<p>We assigned you a temporary password, which you can change after signing in.</p>
+
+<p><strong>Email:</strong> <%= @user.email %></p>
+
+<p><strong>Password:</strong> <%= @password %></p>
+
+<p>Click the link below to sign in, finish setting up your account and start using TodoApp.</p>
+
+<p><%= link_to "Sign in", sign_in_url %></p>
+
+<hr>
+
+<p>Have questions or need help? Just reply to this email and our support team will help you sort it out.</p>

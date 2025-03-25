@@ -9,6 +9,8 @@ en:
         description: Description
         status: Status
         title: Title
+      membership:
+        email: Email
       user:
         email: Email
         first_name: First name
@@ -50,6 +52,7 @@ en:
     basic_informations:
       edit:
         account_information_title: Account Information
+        account_setup_complete_instructions: "‼️ Given your have been invited to TodoApp, you need to change your account information below in order to use the app. ‼️"
       form:
         error: "%{count} errors prohibited this account from being saved:"
         submit: Save changes
@@ -128,6 +131,7 @@ en:
         destroy: Destroy
         destroy_confirm: Are you sure you want to delete this list?
         edit: Edit
+        memberships: Memberships
       new_item: New item
       no_completed_items: No completed items yet. Let's tackle some pending ones!
       no_items_found: Let's start to create items!
@@ -151,6 +155,12 @@ en:
   layouts:
     application:
       account: Account
+  list:
+    cannot_remove_admin: Cannot remove admin from list
+    invitation:
+      could_not_add_user_to_the_list: Could not add user to the list
+      user_already_a_member: User is already a member of the list
+    not_a_participant: Membership is not a participant
   lists:
     destroy:
       success: List was successfully destroyed
@@ -160,12 +170,28 @@ en:
       name_placeholder: List name...
       submit: Save Changes
       title: Edit List
-    index:
-      new_list: New List
+    memberships:
+      create:
+        success: Member was successfully added
+      destroy:
+        error: Could not remove member
+        success: Member was successfully removed
+      index:
+        add_member: Add Member
+        title: "%{list_name} Memberships"
+      membership:
+        confirm_remove: Are you sure you want to remove this member?
+      new:
+        cancel: Cancel
+        error: "%{count} errors prohibited this membership from being saved:"
+        submit: Add
+        title: Add Member to %{list_name}
     new:
       cancel: Cancel
       name_placeholder: List name...
       submit: Save
+    new_list_btn:
+      new_list: New List
   passwords:
     edit:
       title: Change your password

@@ -1,0 +1,35 @@
+<% content_for :title, t(".title", list_name: @list.name) %>
+
+<div class="w-full">
+  <h1 class="font-bold text-4xl">
+    <%= t(".title", list_name: @list.name) %>
+  </h1>
+
+  <hr class="my-4 border-gray-300">
+
+  <%= turbo_frame_tag "new_membership_form" do %>
+    <%= form_with model: @membership, url: list_memberships_path(@list), class: "flex flex-col items-end" do |form| %>
+      <% if @membership.errors.any? || @invitation&.errors&.any? %>
+        <div class="errors self-start" style="color: red">
+          <h2><%= t(".error", count: @membership.errors.count + @invitation&.errors&.count) %></h2>
+
+          <ul>
+            <% @membership.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+
+            <% @invitation&.errors&.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.email_field :email, class: "block shadow-sm rounded-md border px-2 py-1 w-full border-gray-400 focus:outline-blue-600 mb-4 md:mb-0" %>
+      <div class="flex gap-2 w-full md:w-1/4 mt-2">
+        <%= form.submit t(".submit"), class: "w-1/2 bg-blue-500 text-white py-1 px-2 rounded-md" %>
+        <%= link_to t(".cancel"), list_memberships_path(@list), class: "w-1/2 border border-red-500 text-red-500 py-1 px-2 rounded-md text-center" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

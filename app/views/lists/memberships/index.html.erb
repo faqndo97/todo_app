@@ -1,0 +1,23 @@
+<% content_for :title, t(".title", list_name: @list.name) %>
+
+<div class="w-full">
+  <h1 class="font-bold text-4xl">
+    <span style="view-transition-name: <%= dom_id(@list, :name) %>"><%= @list.name.capitalize %></span>
+    <%= t(".title", list_name: @list.name) %>
+  </h1>
+
+  <hr class="my-4 border-gray-300">
+
+  <div class="">
+    <%= turbo_frame_tag "new_membership_form" do %>
+      <%= link_to new_list_membership_path(@list), class: "flex items-center gap-2 rounded-md w-fit px-2 py-1 bg-blue-600 hover:bg-blue-500 text-white font-medium" do %>
+        <%= heroicon "plus", options: { class: "w-5 h-5" } %>
+        <%= t(".add_member") %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="memberships" class="min-w-full mt-12 border border-gray-300 rounded-md py-4 px-3.5">
+    <%= render partial: "membership", collection: @memberships, locals: { list: @list } %>
+  </div>
+</div>

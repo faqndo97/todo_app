@@ -1,5 +1,7 @@
 <%# locals: (list:, item: nil)%>
 
+<%= turbo_stream_from(dom_id(list)) %>
+
 <li id="<%= dom_id(list) %>" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
   <%= link_to list.name.capitalize, list_items_path(list), class: "flex-1 whitespace-nowrap", data: {turbo_frame: "_top"} %>
   <% if list.items.pending_status.count > 0 %>

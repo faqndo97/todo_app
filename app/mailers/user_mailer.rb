@@ -16,4 +16,14 @@ class UserMailer < ApplicationMailer
       mail to: @user.email
     end
   end
+
+  def invitation
+    @user = params[:user]
+    @inviter = params[:inviter]
+    @password = params[:password]
+
+    I18n.with_locale(@user.locale) do
+      mail to: @user.email
+    end
+  end
 end

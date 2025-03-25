@@ -1,0 +1,14 @@
+<div id="<%= dom_id(membership) %>" class="flex justify-between border-b border-gray-300 pb-4 mb-4 last:border-b-0 last:pb-0 last:mb-0">
+  <div>
+    <%= membership.user.email %>
+    <%= tag.span class: ["px-2 py-1 rounded-md text-sm", "bg-green-100 text-green-800": membership.admin_role?, "bg-blue-100 text-blue-800": membership.participant_role?] do %>
+      <%= membership.role.capitalize %>
+    <% end %>
+  </div>
+
+  <% unless membership.admin_role? %>
+    <%= link_to list_membership_path(list, membership), data: { turbo_confirm: t(".confirm_remove"), turbo_method: :delete }, class: "text-white bg-red-500 rounded-md py-1 px-2" do %>
+      <%= heroicon "user-minus", variant: :outline, options: { class: "w-5 h-5" } %>
+    <% end %>
+  <% end %>
+</div>

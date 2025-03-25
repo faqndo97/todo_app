@@ -1,0 +1,17 @@
+<p>Hola,</p>
+
+<p>Has sido invitado a unirte a TodoApp por <%= @inviter.email %>.</p>
+
+<p>Te hemos asignado una contraseña temporal, que puedes cambiar después de iniciar sesión.</p>
+
+<p><strong>Correo electrónico:</strong> <%= @user.email %></p>
+
+<p><strong>Contraseña:</strong> <%= @password %></p>
+
+<p>Haz clic en el enlace a continuación para iniciar sesión, terminar de configurar tu cuenta y comenzar a usar TodoApp.</p>
+
+<p><%= link_to "Iniciar sesión", sign_in_url %></p>
+
+<hr>
+
+<p>¿Tienes preguntas o necesitas ayuda? Simplemente responde a este correo electrónico y nuestro equipo de soporte te ayudará a resolverlo.</p>

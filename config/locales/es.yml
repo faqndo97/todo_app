@@ -9,6 +9,8 @@ es:
         description: Descripción
         status: Estado
         title: Título
+      membership:
+        email: Email
       user:
         email: Correo electrónico
         first_name: Nombre
@@ -50,6 +52,7 @@ es:
     basic_informations:
       edit:
         account_information_title: Información de la cuenta
+        account_setup_complete_instructions: "‼️ Dado que has sido invitado a TodoApp, necesitas cambiar tus datos de cuenta a continuación para poder usar la app. ‼️"
       form:
         error: "%{count} errores impidieron que esta cuenta fuera guardada:"
         submit: Guardar cambios
@@ -128,6 +131,7 @@ es:
         destroy: Eliminar
         destroy_confirm: "¿Estás seguro de que quieres eliminar esta lista?"
         edit: Editar
+        memberships: Miembros
       new_item: Nuevo item
       no_completed_items: Aún no hay items completados. ¡Vamos a abordar algunos pendientes!
       no_items_found: "¡Empecemos a crear items!"
@@ -151,6 +155,12 @@ es:
   layouts:
     application:
       account: Cuenta
+  list:
+    cannot_remove_admin: No se puede eliminar al administrador de la lista
+    invitation:
+      could_not_add_user_to_the_list: No se pudo añadir al usuario a la lista
+      user_already_a_member: El usuario ya es miembro de la lista
+    not_a_participant: La membresía no es un participante
   lists:
     destroy:
       success: La lista se eliminó correctamente
@@ -160,12 +170,28 @@ es:
       name_placeholder: Nombre de la lista...
       submit: Guardar cambios
       title: Editar lista
-    index:
-      new_list: Nueva lista
+    memberships:
+      create:
+        success: Miembro añadido correctamente
+      destroy:
+        error: No se pudo eliminar al miembro
+        success: Miembro eliminado correctamente
+      index:
+        add_member: Añadir Miembro
+        title: Miembros de %{list_name}
+      membership:
+        confirm_remove: "¿Estás seguro de que quieres eliminar a este miembro?"
+      new:
+        cancel: Cancelar
+        error: "%{count} errores impidieron que esta membresía fuera guardada:"
+        submit: Añadir
+        title: Añadir Miembro a %{list_name}
     new:
       cancel: Cancelar
       name_placeholder: Nombre de la lista...
       submit: Guardar
+    new_list_btn:
+      new_list: Nueva lista
   passwords:
     edit:
       title: Cambiar tu contraseña

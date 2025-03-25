@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :lists, except: :show do
     resources :items
+    resources :memberships, module: :lists
   end
 
   resource :account, only: %i[show edit update]

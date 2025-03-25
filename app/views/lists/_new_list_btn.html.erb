@@ -1,0 +1,1 @@
+<%= link_to t(".new_list"), new_list_path, data: { turbo_frame: "new_list" }, class: ["flex items-center p-2 text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700 group bg-blue-600 text-white font-medium", "opacity-50 pointer-events-none select-none": (Current.user.invited? && Current.user.invitation_unconfirmed?)] %>

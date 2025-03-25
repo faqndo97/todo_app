@@ -5,5 +5,9 @@
 
   <hr class="my-4 border-gray-300">
 
+  <% if @user.invited? && @user.invitation_unconfirmed? %>
+    <p class="my-5 bg-yellow-100 animate-[bg-fade_1s_ease-in-out] p-3 rounded-md"><%= t(".account_setup_complete_instructions") %></p>
+  <% end %>
+
   <%= render "form", user: @user %>
 <% end %>
